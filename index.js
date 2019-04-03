@@ -6,7 +6,7 @@ let mouse = {x:0,y:0}
 let radius = 1
 let colors = ["#468966","#FFF0A5", "#3affca"];
 
-let copy = document.querySelector("#sunaba");
+const copy = document.querySelector("#sunaba");
 
 let ww = canvas.width = window.innerWidth;
 let wh = canvas.height = window.innerHeight;
@@ -29,7 +29,6 @@ function Particle(x,y){
 }
 
 Particle.prototype.render = function() {
-
 
   this.accX = (this.dest.x - this.x)/1000;
   this.accY = (this.dest.y - this.y)/500;
@@ -119,10 +118,8 @@ function render(a) {
 };
 
 copy.addEventListener("keyup", initScene);
-window.addEventListener("resize", initScene);
+window.addEventListener("load", initScene);
 window.addEventListener("mousemove", onMouseMove);
 window.addEventListener("touchmove", onTouchMove);
 window.addEventListener("click", onMouseClick);
-window.addEventListener("touchend", onTouchEnd);
-initScene();
 requestAnimationFrame(render);
